@@ -1,5 +1,11 @@
 require_relative "battle.rb"
 
+def print_with_typing(text, delay)
+  text.each_char do |c|
+    print c
+    sleep delay
+  end
+end
 
 def story()
   player_info = [100,25,[true, false].sample,10]
@@ -121,4 +127,87 @@ def story()
       ###
       print_with_typing("Du kommer till en väkskylt, åt höger är Espreosso Lane Åt vänster är Latte Woods", 0.03)
     end 
+<<<<<<< Updated upstream
   end 
+=======
+   
+    
+    user_input= ""
+    while user_input!="c"
+        user_input=gets.chomp
+        puts"\n"
+        puts "CHOOSE BETWEEN THE OPTIONS AVAILABLE"
+        puts"\n"
+        puts "a. Where am i?"
+        puts "b. Who are you?"
+        puts "c. Continue"
+        if user_input == "a"
+          puts"\n"
+          print_with_typing( "You are at the caffeinvania village, the southern village of the kingdom caffemania", 0.00005)
+          puts"\n"
+        end
+        if user_input == "b"
+          puts"\n"
+            print_with_typing("I am the king of this village big j", 0.0005)
+            puts"\n"
+        end
+    end
+    puts "\n"
+    print_with_typing("NOOOOOW WARRIOR! WILL YOU ACCEPT THIS CHALLENGE TO BECOME THE COFFE WARRIOR AND SAVE THIS VILLAGE FROM THE GREAT COFFE DEPRESSION", 0.00005)
+    puts "\n"
+    puts "a. Yes,i'm ready!"
+    puts "b. No, give me a bit of time man."
+    user_input= gets.chomp
+    
+    if user_input== "a"
+      puts"\n"
+        print_with_typing( "excellent let's the journey begin!", 0.00005)
+        puts "\n"
+    end
+    if user_input== "b"
+      puts"\n"
+        print_with_typing("you have no choice my youngling. Let's the journey begin!", 0.00005) 
+        puts "\n"
+    end
+    sleep(2)
+    puts "\n"
+    puts "Which route do you want to take"
+    puts "\n"
+    sleep(1)
+    puts "a. Espresso lane known for it's fast route to great coffe. But be warned, the road is also home to mischievous baristas who are difficult opponents to beat."
+    puts "\n"
+    sleep(5)
+    puts "\n"
+    puts "b. Latte Woods known for it's creamy and foamy route to coffe. It takes time to get to where you want,but it's a calm    ride to get your coffe"
+    puts"\n"
+    
+    user_input= gets.chomp
+    if user_input == "a"
+        sleep(1)
+        puts"\n"
+        puts "You've choosen the Espresso lane."
+        puts"\n"
+    end
+    if user_input == "b"
+        sleep(1)
+        puts"\n"
+        puts "You've choosen the Latte Woods."
+        puts"\n"
+    end
+  
+    puts "\n"
+    sleep(1)
+    print_with_typing("chosen warrior, set off on his quest with nothing but a map and his wits. He journeyed through dense forests, across raging rivers, and over treacherous mountains. Along the way, he encountered many dangers, including wild beasts, hostile tribes, and treacherous terrain.", 0.0005) 
+    puts "\n"
+    sleep(1)
+    puts "suddenly an opponent has appeared!!!!!"
+    sleep(1)
+    player_info = [100,25,[true, false].sample,10]
+    battle(player_info,"You encountered an opponent in Latte Woods!",latte_woods_opp[0],1)
+    battle(player_info,"You encountered an opponent in Latte Woods!",latte_woods_opp[0],1)
+
+end 
+
+
+story()
+>>>>>>> Stashed changes
