@@ -10,8 +10,6 @@ def battle(player_info,message,opponent_info,level)
     if opponent_info[0]==0
         state=false
     end
-
-    puts "hej"
     
     while state
         player_speed = player_info[4]
