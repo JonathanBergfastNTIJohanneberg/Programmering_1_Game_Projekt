@@ -1,3 +1,19 @@
+
+# Beskrivning: Funktionen battle simulerar en strid mellan en spelare och en motståndare med olika alternativ för spelaren att välja mellan.
+# Argument 1: player_info - en array med spelarens information, inklusive hälsa, erfarenhetspoäng, nivå, om spelaren har en rymdsvärd och hastighet.
+# Argument 2: message - en sträng med ett meddelande som ska visas i början av striden.
+# Argument 3: opponent_info - en array med motståndarens information, inklusive hälsa, skada och hastighet.
+# Argument 4: level - en heltalsvariabel som anger nivån på motståndaren.
+# Return: Ingen explicit return, men spelarens information uppdateras under striden.
+# Exempel:
+# player_info = [100, 0, 1, true, 10]
+# message = "En fiende dyker upp!"
+# opponent_info = [50, 10, 5]
+# level = 2
+# battle(player_info, message, opponent_info, level)
+# Datum: 2023-05-08
+# Namn 1: yusuf muhumed
+# namn 2: Jonthan Bergfast
 def battle(player_info,message,opponent_info,level)
     
 
@@ -10,6 +26,11 @@ def battle(player_info,message,opponent_info,level)
     if opponent_info[0]==0
         state=false
     end
+<<<<<<< Updated upstream
+=======
+
+    
+>>>>>>> Stashed changes
     
     while state
         player_speed = player_info[4]
@@ -26,12 +47,10 @@ def battle(player_info,message,opponent_info,level)
         puts "c. run"
         puts "\n"
         user_input= gets.chomp.downcase
-        my_turn= 1
-        opp_turn=1
-  
+      
         while user_input!= "a"||user_input!= "b"||user_input!= "c"
             if  user_input== "a"||user_input== "b"||user_input== "c"
-                break
+                next
             end
             puts "Invalid input! Please enter a for sword attacks, b for coffe heals, or c to run."
             user_input = gets.chomp.downcase
@@ -50,7 +69,7 @@ def battle(player_info,message,opponent_info,level)
         if user_input.downcase == "a"
             opponent_info[0]= opponent_info[0]-25
             puts "you've dealt 25 damage"
-            my_turn+=1
+            
         end
   
         if user_input.downcase == "b"
@@ -61,13 +80,12 @@ def battle(player_info,message,opponent_info,level)
             if player_info[0] < 100
                 player_info[0]= player_info[0]+20
                 puts "you've drank your coffe healing potion"
-                my_turn+=1
+                
             end
         end
         if opponent_info[0] <= 0
             message = "congrats you beat your opponent"
             puts message
-            my_turn+=1
             exp = 50 + level*10
             puts "You gained #{exp} experience points!"
             player_info[1] += exp
@@ -76,18 +94,18 @@ def battle(player_info,message,opponent_info,level)
                 player_info[2] += 1
                 puts "You have leveled up! Your level is now #{player_info[2]}!"
             end
-            break
+            next
         end
   
         if user_input.downcase == "c"
             if player_info[3] == true
                 puts "you've succsefully ran away"
-                break
+                next
             end
   
             if player_info[3] == false
                 puts "you couldn't get away"
-                my_turn+=1
+                
             end
         end
         
@@ -104,7 +122,7 @@ def battle(player_info,message,opponent_info,level)
         
         if player_info[0] <= 0
             puts "Game Over"
-            break
+            next
         end
   
         
