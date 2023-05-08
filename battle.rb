@@ -35,7 +35,6 @@ def battle(player_info,message,opponent_info,level)
             end
             puts "Invalid input! Please enter a for sword attacks, b for coffe heals, or c to run."
             user_input = gets.chomp.downcase
-            
         end
   
         if player_speed.to_i < opp_speed.to_i
