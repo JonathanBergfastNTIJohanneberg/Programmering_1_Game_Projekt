@@ -26,11 +26,10 @@ def battle(player_info,message,opponent_info,level)
     if opponent_info[0]==0
         state=false
     end
-<<<<<<< Updated upstream
-=======
+
 
     
->>>>>>> Stashed changes
+
     
     while state
         player_speed = player_info[4]
@@ -50,7 +49,7 @@ def battle(player_info,message,opponent_info,level)
       
         while user_input!= "a"||user_input!= "b"||user_input!= "c"
             if  user_input== "a"||user_input== "b"||user_input== "c"
-                next
+                break
             end
             puts "Invalid input! Please enter a for sword attacks, b for coffe heals, or c to run."
             user_input = gets.chomp.downcase
@@ -85,7 +84,6 @@ def battle(player_info,message,opponent_info,level)
         end
         if opponent_info[0] <= 0
             message = "congrats you beat your opponent"
-            puts message
             exp = 50 + level*10
             puts "You gained #{exp} experience points!"
             player_info[1] += exp
@@ -94,7 +92,8 @@ def battle(player_info,message,opponent_info,level)
                 player_info[2] += 1
                 puts "You have leveled up! Your level is now #{player_info[2]}!"
             end
-            next
+            puts message
+            return 
         end
   
         if user_input.downcase == "c"
@@ -104,8 +103,7 @@ def battle(player_info,message,opponent_info,level)
             end
   
             if player_info[3] == false
-                puts "you couldn't get away"
-                
+                puts "you couldn't get away" 
             end
         end
         
@@ -122,12 +120,7 @@ def battle(player_info,message,opponent_info,level)
         
         if player_info[0] <= 0
             puts "Game Over"
-            next
+            break
         end
-  
-        
-  
     end
-    
 end
-  

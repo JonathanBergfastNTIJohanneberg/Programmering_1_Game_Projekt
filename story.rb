@@ -83,9 +83,9 @@ def story()
         print_with_typing("As the raiders approached, their eyes glinting with malice and their weapons drawn, you felt a cold shiver run down your spine. The old man beside you cowered in fear, but you knew that you couldn't give up without a fight.", 0.03)
         puts "\n"
         puts "\n"
-        battle(player_info,"Raider: I Will Kill You",latte_woods_opp[0],1)
+        battle(player_info,"Raider 1: I Will Kill You",latte_woods_opp[0],1)
         puts "\n"
-        battle(player_info,"Raider: Prepare To Suffer",latte_woods_opp[0],1)
+        battle(player_info,"Raider 2: Prepare To Suffer",latte_woods_opp[1],1)
       
         if player_info[0] <= 0
           puts "You have died. Game over."
@@ -127,9 +127,9 @@ def story()
       ###
       print_with_typing("Du kommer till en väkskylt, åt höger är Espreosso Lane Åt vänster är Latte Woods", 0.03)
     end 
-<<<<<<< Updated upstream
-  end 
-=======
+
+  
+
    
     
     user_input= ""
@@ -209,5 +209,4 @@ def story()
 end 
 
 
-story()
->>>>>>> Stashed changes
+
