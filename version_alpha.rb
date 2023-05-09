@@ -2,11 +2,10 @@ require 'gosu'
 require_relative "battle.rb"
 require_relative "story.rb"
 
-
 class TitleScreen < Gosu::Window
   def initialize
     super(800, 600, false)
-    self.caption = "My Game"
+    self.caption = "COFFE WARRIOR"
     @menu_mode = true
     @character_creation = false
     @needs_redraw = true
