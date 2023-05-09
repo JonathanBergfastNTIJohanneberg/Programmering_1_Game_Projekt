@@ -1,4 +1,5 @@
 require_relative "battle.rb"
+require_relative "validator"
 
 def print_with_typing(text, delay)
   text.each_char do |c|
@@ -55,7 +56,7 @@ def story()
   puts "a.Stay and try to dissolve his mumbling"
   puts "b.Push him aside and walk away"
   puts "\n"
-  player_choice = gets.chomp.downcase
+  player_choice = validator(["a","b"],"invalid input. please chooose betweeen options a or b")
   puts "\n"
 
   if player_choice =="a"
@@ -78,7 +79,7 @@ def story()
     puts "a. Prepare to fight for your life"
     puts "b. Make a break for it"
     puts"\n"
-    player_choice = gets.chomp.downcase
+    player_choice = validator(["a","b"],"invalid input. please chooose betweeen options a or b")
     puts "\n"
   
     if player_choice == "a"
@@ -130,7 +131,7 @@ def story()
   
   user_input= ""
   while user_input!="c"
-      user_input=gets.chomp
+      user_input=validator(["a","b","c"],"invalid input. please chooose betweeen options a, b or c")
       puts"\n"
       puts "CHOOSE BETWEEN THE OPTIONS AVAILABLE"
       puts"\n"
@@ -153,7 +154,7 @@ def story()
   puts "\n"
   puts "a. Yes,i'm ready!"
   puts "b. No, give me a bit of time man."
-  user_input= gets.chomp
+  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
   
   if user_input== "a"
     puts"\n"
@@ -177,7 +178,7 @@ def story()
   puts "b. Latte Woods known for it's creamy and foamy route to coffe. It takes time to get to where you want,but it's a calm ride to get your coffe.(easy mode)"
   puts"\n"
   
-  user_input= gets.chomp
+  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
   if user_input == "a"
       sleep(1)
       puts"\n"
@@ -209,7 +210,7 @@ def story()
   sleep(1)
   puts "suddenly an opponent has appeared!!!!!"
   sleep(1)
-  battle(player_info,)
+  
   
   
 

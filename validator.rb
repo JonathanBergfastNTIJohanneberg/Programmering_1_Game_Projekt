@@ -1,18 +1,13 @@
-def validator(options,user_input,message)
-    
-    i=0
-    
-    while i < options.length
-       
-            if options[i] == i
-                break
-            end
-            puts message   
-        
-        i+=1
-        user_input = gets.chomp.downcase
+def validator(valid_options, message)
+    loop do
+      user_input = gets.chomp.downcase
+      if valid_options.include?(user_input)
+        return user_input
+      else
+        puts message
+      end
     end
-end
-input = gets.chomp
-validator(["a","b","c"],input,"wrong alt")
+  end
+
+
 
