@@ -1,7 +1,10 @@
-
-
-
-
+# Beskrivning: Denna metod skriver ut en text med en "skrivmaskinseffekt" genom att skriva ut varje tecken i texten med en viss fördröjning.
+# Argument 1: text - En sträng som ska skrivas ut.
+# Argument 2: delay - En fördröjning i sekunder mellan varje utskrivet tecken.
+# Return: Inget värde returneras.
+# Exempel:
+# print_with_typing("Hello, World!", 0.1)
+# => H e l l o , W o r l d !
 def print_with_typing(text, delay)
   text.each_char do |c|
     print c

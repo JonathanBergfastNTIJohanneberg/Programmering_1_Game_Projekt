@@ -24,6 +24,3 @@ def validator(valid_options, message)
       end
     end
   end
-
-
-

@@ -1,8 +1,19 @@
+# Beskrivning:  Denna kod representerar en spelmeny för spelet "COFFE WARRIOR". Koden är skriven i Ruby med användning av Gosu-biblioteket för att hantera fönster och användargränssnitt. Spelmenyn visar en titelskärm med ett logotypbilde och två knappar: "Start Game" och "Exit Game". Vid klick på "Start Game"-knappen går spelet in i karaktärsskapelseläge, där spelaren uppmanas att ange sitt namn, kön och ålder. Efter att spelaren har angett dessa uppgifter visas en sammanfattning av karaktärens information och spelaren har möjlighet att ändra den eller fortsätta in i spelet.
+
+# Datum: 2023-05-08
+# Namn 1: yusuf muhumed
+# namn 2: Jonthan Bergfast
+
+
 require 'gosu'
 require_relative "battle.rb"
 require_relative "story.rb"
-
+#Beskrivning: En klass som ärver från Gosu::Window och representerar huvudfönstret för spelmenyn.
 class TitleScreen < Gosu::Window
+  #Beskrivning: En metod som körs vid skapandet av ett nytt TitleScreen-objekt och används för att sätta upp de initiala värdena och resurserna för spelmenyn.
+  #Argument: Inga argument.
+  #Return: Inget returvärde.
+  #Exempel: title_screen = TitleScreen.new
   def initialize
     super(800, 600, false)
     self.caption = "COFFE WARRIOR"
@@ -36,7 +47,10 @@ class TitleScreen < Gosu::Window
     @exit_button_y = 800  # Fixed position below the window
   end
   
-
+ # Beskrivning: En metod som körs kontinuerligt för att uppdatera tillståndet och logiken för spelmenyn.
+ # Argument: Inga argument.
+ # Return: Inget returvärde.
+ # Exempel: title_screen.update
   def update
     @logo_y += 1 if @logo_y < -100  # Move logo downwards until y-coordinate is 150
     # Move button texts upwards until they reach their fixed positions
@@ -49,7 +63,15 @@ class TitleScreen < Gosu::Window
   end
 
   
-
+  # Beskrivning: Denna metod används för att rita ut karaktärsinformation på skärmen.
+  # Argument 1: name - En sträng som representerar karaktärens namn.
+  # Argument 2: gender - En sträng som representerar karaktärens kön.
+  # Argument 3: age - En sträng som representerar karaktärens ålder.
+  # Argument 4: x - En heltalsvärde som representerar x-koordinaten för var karaktärsinformationen ska ritas ut.
+  # Argument 5: y - En heltalsvärde som representerar y-koordinaten för var karaktärsinformationen ska ritas ut.
+  # Argument 6: color - Ett heltalsvärde som representerar färgen på texten i RGB-format.
+  # Return: Ingen returvärde.
+  # Exempel: draw_character_info("John Doe", "Male", "25", 100, 200, 0xffffffff)
   def draw_character_info(name, gender, age, x, y, color)
     font = Gosu::Font.new(64, name: "font.otf")
     line_height = font.height + 5
@@ -60,15 +82,14 @@ class TitleScreen < Gosu::Window
   end
   
 
-  
-def print_with_typing(text, delay)
-  text.each_char do |c|
-    print c
-    sleep delay
-  end
-end
 
 
+
+#Beskrivning: En metod som anropas när en knapp trycks ned. Metoden hanterar olika typer av knapptryckningar och utför åtgärder baserat på vilken knapp som tryckts ned.
+#Argument:
+#id: En identifierare för den knapp som tryckts ned.
+#Return: Inget returvärde.
+#Exempel: title_screen.button_down(Gosu::KB_ESCAPE)
   def button_down(id)
     case id
     when Gosu::KB_ESCAPE
@@ -132,6 +153,10 @@ end
   end
 
 
+  #Beskrivning: En metod som anropas när vänster musknapp klickas. Metoden kontrollerar om klicket inträffade på någon av knapparna i spelmenyn och utför motsvarande åtgärder.
+  #Argument: Inga argument.
+ # Return: Inget returvärde.
+  # Exempel: title_screen.handle_click
   def handle_click
     if mouse_on_button?(@start_game_button_x, @start_game_button_y, @font.text_width(@start_game_button), @font.height)
       start_game
@@ -140,16 +165,35 @@ end
     end
   end
 
+  # Beskrivning: Denna metod kontrollerar om muspekaren befinner sig över en knapp.
+  # Argument 1: button_x (Integer) - x-koordinaten för knappens övre vänstra hörn.
+  # Argument 2: button_y (Integer) - y-koordinaten för knappens övre vänstra hörn.
+  # Argument 3: button_width (Integer) - bredden på knappen.
+  # Argument 4: button_height (Integer) - höjden på knappen.
+  # Return: Returnerar true om muspekaren befinner sig över knappen, annars false.
+  # Exempel:
+  # mouse_on_button?(100, 200, 80, 30) #=> true
+  # mouse_on_button?(300, 150, 50, 50) #=> false
   def mouse_on_button?(button_x, button_y, button_width, button_height)
       mouse_x > button_x && mouse_x < button_x + button_width && mouse_y > button_y && mouse_y < button_y + button_height
   end
 
+ # Beskrivning: En metod som sätter spelmenyn i karaktärsskapelseläge och förbereder fönstret för att visa karaktärsskapelselementen.
+# Argument: Inga argument.
+#Return: Inget returvärde.
+# Exempel: title_screen.start_game
   def start_game
     @menu_mode = false
     @character_creation = true
     @needs_redraw = true
   end
   
+
+  # Beskrivning: Denna metod används för att rita ut grafiska element och text på skärmen i spelet.
+  # Argument: Inga argument.
+  # Return: Ingen retur.
+  # Exempel:
+  # draw # Ritar spelets grafiska element och text på skärmen.
   def draw
     super
   
@@ -187,9 +231,27 @@ end
   end 
 
 
+  #Beskrivning: En metod som är ansvarig för att rita om spelmenyn när den befinner sig i karaktärsskapelseläget. Denna metod kan anpassas för att lägga till ytterligare visuella element och logik för karaktärsskapandet.
+  #Argument: Inga argument.
+  #Return: Inget returvärde.
+  #Exempel: title_screen.redraw_game_screen
   def redraw_game_screen
    
   end
+
+  #Beskrivning: En metod som används för att rita ut en knapp på skärmen med en given text och position.
+  # Argument:
+
+    #text: En sträng som representerar texten som ska visas på knappen.
+   # x: En numerisk värde som anger x-koordinaten för knappen.
+   # y: En numerisk värde som anger y-koordinaten för knappen.
+   # radius: En numerisk värde som representerar radien för knappens avrundade hörn (standardvärdet är 10).
+   #color: En hexadecimal färgkod som representerar färgen för knappen (standardvärdet är 0xff_808080).
+   # z: En numerisk värde som representerar z-ordningen för att rita knappen (standardvärdet är 0).
+   # Return: Inget returvärde.
+
+   # Exempel: title_screen.draw_button("Start Game", 100, 200)
+
   
   def draw_button(text, x, y, radius = 10, color = 0xff_808080, z = 0)
     width = @font.text_width(text) + 20
@@ -202,7 +264,16 @@ end
     @font.draw_text(text, x + 10, y + 2, 0, 1, 1, 0xffffffff)
   end
   
-  
+  #Beskrivning: Denna metod ritar en rektangel med rundade hörn på skärmen.
+  # Argument 1: x-koordinaten för den övre vänstra hörnpunkten av rektangeln.
+  # Argument 2: y-koordinaten för den övre vänstra hörnpunkten av rektangeln.
+  # Argument 3: Bredden på rektangeln.
+  # Argument 4: Höjden på rektangeln.
+  # Argument 5: Radien för de rundade hörnen.
+  # Argument 6: Färgen att fylla rektangeln med.
+  # Argument 7: (valfritt) Z-värdet för att styra ordningen av ritningen (default är 0).
+  # Return: Inget returnerat värde.
+  # Exempel: draw_rounded_rect(100, 100, 200, 150, 10, 0xff_0000ff)
   def draw_rounded_rect(x, y, width, height, radius, color, z = 0)
     Gosu.clip_to(x + radius, y, width - 2 * radius, height) do
       Gosu.draw_rect(x + radius, y, width - 2 * radius, height, color, z)
@@ -213,235 +284,41 @@ end
     Gosu.draw_quad(x + radius, y, color,x + width - radius, y, color,x + width, y + radius, color,x + width, y + height - radius, color) 
   end
   
-
+  #Beskrivning: En metod som returnerar en boolesk sanning om spelmenyn kräver att en muspekare visas på skärmen.
+ #Argument: Inga argument.
+  #Return: En boolesk sanning (true/false) beroende på om muspekaren krävs eller inte.
+  #Exempel: title_screen.needs_cursor?
   def needs_cursor?
     true
   end
 
+  #Beskrivning: Denna metod kontrollerar om karaktärsskapandet är slutfört.
+  #Argument: Inga argument.
+  #Return: Returnerar true om karaktärsskapandet är slutfört, annars false.
+  #Exempel:
+  #character_creation_completed? #=> true
+  #character_creation_completed? #=> false
   def character_creation_completed?
     !@prompt_again
   end
 
+  #Beskrivning: Denna metod returnerar karaktären som har skapats.
+  #Argument: Inga argument.
+  #Return: Returnerar en hash som representerar karaktären.
+  #Exempel: character #=> { name: "John", gender: "Male", age: 30 }
   def character
     @character
   end
 
+
+  #Beskrivning: Denna metod indikerar om uppdatering behövs.
+  #Argument: Inga argument.
+  #Return: Returnerar alltid true, vilket innebär att uppdatering behövs.
+  #Exempel: needs_update? #=> true
   def needs_update?
     true
   end
   
 end
-
-
-
-def print_with_typing(text, delay)
-  text.each_char do |c|
-    print c
-    sleep delay
-  end
-end
-
-def story()
-  player_info = [100,25,[true, false].sample,10]
-
-  latte_woods_opp = [
-    [50, 20, 8, [true, false].sample, 5],
-    [60, 20, 10, [true, false].sample, 4],
-    [70, 25, 10, [true, false].sample, 6],
-    [80, 30, 15, [true, false].sample, 6],
-    [100, 25, 20, [true, false].sample, 5]
-  ]
-
-  espresso_lane_opp = [
-    [60, 30, 15, [true, false].sample, 6],
-    [80, 30, 15, [true, false].sample, 6],
-    [100, 25, 20, [true, false].sample, 5],
-    [100, 25, 20, [true, false].sample, 5],
-    [100, 25, 20, [true, false].sample, 5],
-    [120, 35, 25, [true, false].sample, 4]
-  ]
-
-  puts"\n"
-  print_with_typing("The year is 4042, and the world is barely recognizable. As you slowly open your eyes, the reality of the post-apocalyptic world around you sets in. The sun's dim light struggles to penetrate the thick haze of smog and ash that hangs in the air, a constant reminder of the destruction that has taken place. It's been years since the collapse, and the chaos that ensued was unprecedented. The global coffee shortage left people unable to function without their morning cup of coffee or energy drinks, and as a result, society crumbled.", 0.03)
-  puts "\n"
-  sleep(2)
-  puts "\n"
-  print_with_typing("Riots, looting, and violence swept across the globe as people struggled to cope with the withdrawal symptoms. Governments fell, infrastructure collapsed, and the world was plunged into darkness. The absence of caffeine, once taken for granted, had brought the world to its knees.", 0.03)
-  puts "\n"
-  puts "\n"
-  sleep(2)
-  print_with_typing("But amidst the ruins, a new world has emerged. A world where survival is the only goal. Will you be able to navigate the dangers of this new reality? Will you be able to scavenge for resources, avoid danger, and find a way to thrive in a world without caffeine? The choice is yours, and your fate hangs in the balance. Welcome to the year 4042.", 0.03)
-  puts "\n"
-  puts "\n"
-  print_with_typing("PRESENT DAY", 0.03)
-  puts "\n"
-  puts "\n"
-  sleep(2)
-  print_with_typing("As you start to lively up, you realize that you have been in a daze. Your head is pounding, and your vision is blurry. You struggle to sit up and take in your surroundings. The world around you is barely recognizable. The buildings are in ruins, and the streets are littered with debris. The air is thick with smog and ash, and the only sound you can hear is the distant rumbling of thunder. You try to remember how you got here, but your memory is hazy. Just then, an old man approaches you, asking for help.", 0.03)
-  puts"\n"
-  puts"\n"
-  sleep(2)
-  print_with_typing("He looks desperate and in disarray, and there is no one else around to assist him. His clothes are torn and dirty, and his eyes are filled with fear. He tells you that he is being chased by a group of raiders who are after his supplies, and he needs your help to fend them off. You hesitate, not knowing if you can trust this stranger, but his desperation is palpable, and you know that you are in no position to refuse anyone who can potentially help you survive in this new world.", 0.03)
-  puts "\n"
-  puts "\n"
-  sleep(2)
-  puts "a.Stay and try to dissolve his mumbling"
-  puts "b.Push him aside and walk away"
-  puts "\n"
-  player_choice = validator(["a","b"],"invalid input. please chooose betweeen options a or b")
-  puts "\n"
-  if player_choice =="a"
-    print_with_typing("You stand up, feeling a twinge of pain in your side, and follow the old man through the ruins of the city. You can see the fear in his eyes as he looks over his shoulder, and you know that you need to act fast. As you approach a small alleyway, you hear the sound of footsteps getting louder. The raiders are closing in, and you can see their shadows moving in the distance.", 0.03)
-    sleep(2)
-    puts "\n"
-    puts "\n"
-    print_with_typing("You turn to the old man, trying to muster the words to ask him what's going on, but he cuts you off.", 0.03)
-    puts"\n"
-    puts "\n"
-    print_with_typing("Distressed-Old-Man: Please, you have to help me,he says, with his voice shaking.\n \n Distressed-Old-Man: They're after me, and I have nowhere else to turn.", 0.03)
-    puts"\n"
-    puts "\n"
-    print_with_typing("You try to calm him down, telling him that you don't even know who he is or what's going on, but the old man doesn't listen. He just keeps begging for your help, getting more and more desperate by the second.", 0.03) 
-    puts"\n"
-    puts "\n"
-    print_with_typing("As you two keep exchanging dialouge, you realize that the raiders are getting closer. You turn to the old man again, trying to get him to tell you what's happening, but he just keeps pleading with you.", 0.03)
-    puts"\n"
-    puts "\n"
-    puts "a. Prepare to fight for your life"
-    puts "b. Make a break for it"
-    puts"\n"
-    player_choice = validator(["a","b"],"invalid input. please chooose betweeen options a or b")
-    puts "\n"
-  
-    if player_choice == "a"
-      print_with_typing("As the raiders approached, their eyes glinting with malice and their weapons drawn, you felt a cold shiver run down your spine. The old man beside you cowered in fear, but you knew that you couldn't give up without a fight.", 0.03)
-      puts "\n"
-      puts "\n"
-      battle(player_info,"Raider 1: I Will Kill You",latte_woods_opp[0],1)
-      puts "\n"
-      battle(player_info,"Raider 2: Prepare To Suffer",latte_woods_opp[1],1)
-      puts "\n"
-      puts "\n"
-      sleep(2)
-      print_with_typing("As the raiders lay defeated at your feet, you take a deep breath and survey the area around you. Your heart is still racing from the adrenaline rush of battle, but you can feel exhaustion starting to creep up on you. You know you need to find shelter, and fast.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("Your eyes scan the horizon, searching for any sign of civilization. In the distance, you see the outline of a building, and your heart lifts. Maybe you can find refuge there. You help the old man to his feet, and together you start to move towards the structure.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("As you approach, you can see that it's an old, run-down building, probably abandoned long ago. But at this point, any shelter is better than none. You kick open the door and step inside, the old man shuffling in behind you.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("The inside is just as dilapidated as the outside, with broken furniture and debris littering the floor. But you don't care. You just need a place to rest. You find a corner of the room that seems relatively clean, and you lay down, your eyes already starting to droop.", 0.03)
-      puts "\n"
-      puts "\n"
-      sleep(3)
-      print_with_typing("The next thing you know, you're waking up in a daze. You blink a few times, trying to clear your head, and slowly sit up. The old man is still snoring softly beside you. You feel well-rested, but still a little sore from the battle.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("You stand up and stretch, feeling the stiffness in your muscles. As you move towards the door, you notice something glinting on the ground. You pick it up and realize it's a small, metal street sign.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("You squint at the words on the sign, trying to make out the faded lettering. After a moment, you're able to make out the two names: Latte Woods and Espresso Lane. You don't recognize either one.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("But as you look out the window, you realize that you're standing at a crossroads. In the west lies Latte Woods, and in the east lies Espresso Lane. You know that you need to choose a direction, and soon.", 0.03)
-      puts "\n"
-      puts "\n"
-      puts "a. Go West (easy mode)"
-      puts "b. Go East (hard mode)"
-      puts"\n"
-      player_choice = gets.chomp.downcase
-      if player_choice == "a"
-        puts "You went west"
-      end
-      if player_choice == "b"
-        puts "You went east"
-      end
-    end
-
-    if player_choice == "b"
-      print_with_typing("Suddenly, the raiders are upon you, and they're not interested in talking. They draw their weapons, and the old man drops to his knees, begging for mercy and help.", 0.03)  
-      puts "\n"
-      puts "\n"
-      print_with_typing(" But the raiders aren't interested in either. They kill the old man as soon as he's done making his last requests, and turn to you with their weapons high in the air, waving to get your head.", 0.03)  
-      puts "\n"
-      puts "\n"
-      print_with_typing(" You decide to make a break for it, limping away as fast as you can. The raiders give chase, and you run through the broken buildings and abandoned streets of the city.", 0.03) 
-      puts "\n"
-      puts "\n"
-      print_with_typing("Finally, you find yourself enclosed with nowhere to go. The raiders are closing in on you, and the only way out is a cliff that drops down into a river far below.", 0.03) 
-      puts "\n"
-      puts "\n"
-      print_with_typing("Without thinking, you jump, feeling the rush of the wind as you fall. You hit the water with a splash, and for a moment, everything goes black.", 0.03) 
-      puts "\n"
-      puts "\n"
-      print_with_typing(" But then, you surface, gasping for air. You look up and see the raiders on the edge of the cliff, shouting and waving their weapons in anger.", 0.03) 
-      puts "\n"
-      puts "\n"
-      print_with_typing("You swim to the shore, feeling a sense of relief wash over you. You made it out alive, but you know that the dangers of this new world are far from over.", 0.03) 
-      puts "\n"
-      puts "\n"
-      print_with_typing("You rest for a few hours, trying to catch your breath and gather your thoughts. You know you can't stay in one place for too long, so you set out to find shelter and food. The world around you is bleak and desolate, and you can't help but feel a sense of despair.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("As you walk, you come across the ruins of an old town. The buildings are crumbling, and the streets are littered with debris. You start to search for any signs of life, but all you find are abandoned homes and empty streets.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("Just when you start to lose hope, you see a road sign up ahead. It reads Latte Woods - West and Espresso Lane - East.You're not sure where to go, but you know that you need to make a decision soon.", 0.03)
-      puts "\n"
-      puts "\n"
-      print_with_typing("You weigh your options carefully. Latte Woods might offer some semblance of safety and security, but it's also a prime target for raiders and other dangers. Espresso Lane, on the other hand, might be more dangerous, but it could also offer more resources and opportunities.", 0.03)
-      puts "\n"
-      puts "\n"
-      puts "a. Go West (easy mode)"
-      puts "b. Go East (hard mode)"
-      puts"\n"
-      player_choice = gets.chomp.downcase
-      if player_choice == "a"
-        puts "You went west"
-      end
-      if player_choice == "b"
-        puts "You went east"
-      end
-      player_choice = nil 
-    end 
-  end 
-
-  if player_choice == "b"
-    print_with_typing("As the player walked away from the old man's ramblings, they couldn't shake off the feeling of unease. The old man's words echoed in their mind, and they couldn't help but wonder what could have happened if they stayed a little longer.", 0.03)
-    puts "\n"
-    puts "\n"
-    print_with_typing("As they walked down the path towards the road sign, the player felt a chill run down their spine. The woods around them were dark and ominous, the leaves rustling underfoot. The air was thick with the scent of pine needles and damp earth.", 0.03)
-    puts "\n"
-    puts "\n"
-    print_with_typing("The road sign loomed ahead, its faded letters barely legible in the dim light. The player approached the sign, their eyes flickering between the two options. They hesitated for a moment, unsure of which way to go, before finally deciding to head west towards Latte Woods.", 0.03)
-    puts "\n"
-    puts "\n"
-    print_with_typing("As they walked down the dirt path, the player couldn't shake off the feeling of guilt. What if they had stayed and listened to the old man's story? Could they have prevented what was about to happen?", 0.03)
-    puts "\n"
-    puts "\n"
-    print_with_typing("After walking for what felt like hours, the player finally saw something in the distance. As they got closer, they realized with horror that it was the old man, crucified and robbed. The smell of blood and decay filled the air, and the player felt sick to their stomach.", 0.03)
-    puts "\n"
-    puts "\n"
-    print_with_typing("They couldn't help but feel responsible for what had happened. If only they had stayed and listened, maybe they could have helped the old man. But now, it was too late. The player couldn't shake off the image of the old man's lifeless body, and the guilt weighed heavy on their shoulders.", 0.03)
-    puts "\n"
-    puts "\n"
-    print_with_typing("As the player reaches the crossroads, they come across a new road sign. It points to Latte Woods on the left and Espresso Lane on the right. The player weighs their options, knowing that one path will be easier than the other.", 0.03)
-    puts "\n"
-      puts "\n"
-      puts "a. Go West (easy mode)"
-      puts "b. Go East (hard mode)"
-      puts"\n"
-      player_choice = gets.chomp.downcase
-      if player_choice == "a"
-        puts "You went west"
-      end
-      if player_choice == "b"
-        puts "You went east"
-      end
-      player_choice = nil 
-  end 
-end 
 
 TitleScreen.new.show
