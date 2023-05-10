@@ -84,6 +84,7 @@ def battle(player_info,message,opponent_info,level)
         if opponent_info[0] <= 0
             message = "congrats you beat your opponent"
             exp = 50 + level*10
+            player_info[0] = 100
             puts "You gained #{exp} experience points!"
             player_info[1] += exp
             if player_info[1] >= 150

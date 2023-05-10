@@ -222,4 +222,112 @@ def story()
       end
       player_choice = nil 
   end 
+<<<<<<< Updated upstream
 end 
+=======
+
+
+
+  
+  
+  user_input= ""
+  while user_input!="c"
+      user_input=validator(["a","b","c"],"invalid input. please chooose betweeen options a, b or c")
+      puts"\n"
+      puts "CHOOSE BETWEEN THE OPTIONS AVAILABLE"
+      puts"\n"
+      puts "a. Where am i?"
+      puts "b. Who are you?"
+      puts "c. Continue"
+      if user_input == "a"
+        puts"\n"
+        print_with_typing( "You are at the caffeinvania village, the southern village of the kingdom caffemania", 0.00005)
+        puts"\n"
+      end
+      if user_input == "b"
+        puts"\n"
+          print_with_typing("I am the king of this village big j", 0.0005)
+          puts"\n"
+      end
+  end
+  puts "\n"
+  print_with_typing("NOOOOOW WARRIOR! WILL YOU ACCEPT THIS CHALLENGE TO BECOME THE COFFE WARRIOR AND SAVE THIS VILLAGE FROM THE GREAT COFFE DEPRESSION", 0.00005)
+  puts "\n"
+  puts "a. Yes,i'm ready!"
+  puts "b. No, give me a bit of time man."
+  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
+  
+  if user_input== "a"
+    puts"\n"
+      print_with_typing( "excellent let's the journey begin!", 0.00005)
+      puts "\n"
+  end
+  if user_input== "b"
+    puts"\n"
+      print_with_typing("you have no choice my youngling. Let's the journey begin!", 0.00005) 
+      puts "\n"
+  end
+  sleep(2)
+  puts "\n"
+  puts "Which route do you want to take"
+  puts "\n"
+  sleep(1)
+  puts "a. Espresso lane known for it's fast route to great coffe. But be warned, the road is also home to mischievous baristas who are difficult opponents to beat.(hard mode)"
+  puts "\n"
+  sleep(5)
+  puts "\n"
+  puts "b. Latte Woods known for it's creamy and foamy route to coffe. It takes time to get to where you want,but it's a calm ride to get your coffe.(easy mode)"
+  puts"\n"
+  
+  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
+  if user_input == "a"
+      sleep(1)
+      puts"\n"
+      puts "You've choosen the Espresso lane."
+      puts"\n"
+  end
+  if user_input == "b"
+      sleep(1)
+      puts"\n"
+      puts "You've choosen the Latte Woods."
+      puts"\n"
+  end
+
+  if user_input == "a"
+    opponents = espresso_lane_opp
+  end
+
+  if user_input == "b"
+    opponents = latte_woods_opp
+  end
+
+
+  
+
+  puts "\n"
+  sleep(1)
+  print_with_typing("chosen warrior, set off on his quest with nothing but a map and his wits. He journeyed through dense forests, across raging rivers, and over treacherous mountains. Along the way, he encountered many dangers, including wild beasts, hostile tribes, and treacherous terrain.", 0.0005) 
+  puts "\n"
+  sleep(1)
+  puts "suddenly an opponent has appeared!!!!!"
+  battle(player_info,"Give me my coffe youngling",opponents[0],4)
+  print_with_typing("the young warrior was close to the coffe destination but has some miles left. But at the young man's view, he saw something he has never seen before. A talking horse named borscht",0.005)
+  puts "\n"
+  sleep(1)
+  print_with_typing(" Borscht: Youngling, i have a tricky question for you. and as a reward i will let you ride me to your destination. ",0.005)
+  puts "\n"
+  sleep(1)
+  riddle(" I have keys but no locks, and space but no room, you can enter, but you can never leave soon. What am i?.","keyboard")
+  print_with_typing("The Horse named borscht helped the youngling to get so near the coffe supply of the world, but the horse leg's started to get tired and had to rest so the youngling went alone",0.005)
+  puts "\n"
+  sleep(1)
+  print_with_typing("And there he is, So near he can get to endless coffe. But suddenly the final opponent have arrived. To stop him from obtaining this valuable asset",0.005)
+  battle(player_info,"Coffe Hunter:You shall not pass youngling",opponents[4],10)
+  puts "\n"
+  sleep(1)
+  puts " CONGRATS YOUNG WARRIOR. YOU HAVE HELPED YOUR VILLAGE OBTAIN THE VALUABLE ASSET COFFE"
+end 
+
+
+
+>>>>>>> Stashed changes
