@@ -12,6 +12,11 @@ end
 def story()
   player_info = [100,25,[true, false].sample,10]
 
+  raiders = [
+    [50, 20, 8, [true, false].sample, 5],
+    [50, 20, 8, [true, false].sample, 5]
+  ]
+
   latte_woods_opp = [
     [50, 20, 8, [true, false].sample, 5],
     [60, 20, 10, [true, false].sample, 4],
@@ -53,7 +58,11 @@ def story()
   puts "\n"
   puts "\n"
   sleep(2)
+  puts "choose between the options below"
+  puts "\n"
+  sleep(1)
   puts "a.Stay and try to dissolve his mumbling"
+  puts "\n"
   puts "b.Push him aside and walk away"
   puts "\n"
   player_choice = validator(["a","b"],"invalid input. please chooose betweeen options a or b")
@@ -85,7 +94,7 @@ def story()
       print_with_typing("As the raiders approached, their eyes glinting with malice and their weapons drawn, you felt a cold shiver run down your spine. The old man beside you cowered in fear, but you knew that you couldn't give up without a fight.", 0.03)
       puts "\n"
       puts "\n"
-      battle(player_info,"Raider 1: I Will Kill You",latte_woods_opp[0],1)
+      battle(player_info,"Raider 1: I Will Kill You",raiders[0],1)
       puts "\n"
       battle(player_info,"Raider 2: Prepare To Suffer",latte_woods_opp[1],1)
       puts "\n"
