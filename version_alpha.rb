@@ -318,7 +318,6 @@ class TitleScreen < Gosu::Window
   def needs_update?
     true
   end
-  
 end
 
 TitleScreen.new.show

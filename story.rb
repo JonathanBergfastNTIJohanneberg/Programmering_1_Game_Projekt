@@ -5,6 +5,12 @@
 # Exempel:
 # print_with_typing("Hello, World!", 0.1)
 # => H e l l o , W o r l d !
+require_relative "validator.rb"
+require_relative "battle.rb"
+require_relative "riddle.rb"
+
+
+
 def print_with_typing(text, delay)
   text.each_char do |c|
     print c
@@ -141,37 +147,37 @@ def story()
     end
 
     if player_choice == "b"
-      print_with_typing("Suddenly, the raiders are upon you, and they're not interested in talking. They draw their weapons, and the old man drops to his knees, begging for mercy and help.", 0.03)  
+      print_with_typing("Suddenly, the raiders are upon you, and they're not interested in talking. They draw their weapons, and the old man drops to his knees, begging for mercy and help.", 0.05)  
       puts "\n"
       puts "\n"
       print_with_typing(" But the raiders aren't interested in either. They kill the old man as soon as he's done making his last requests, and turn to you with their weapons high in the air, waving to get your head.", 0.03)  
       puts "\n"
       puts "\n"
-      print_with_typing(" You decide to make a break for it, limping away as fast as you can. The raiders give chase, and you run through the broken buildings and abandoned streets of the city.", 0.03) 
+      print_with_typing(" You decide to make a break for it, limping away as fast as you can. The raiders give chase, and you run through the broken buildings and abandoned streets of the city.", 0.05) 
       puts "\n"
       puts "\n"
-      print_with_typing("Finally, you find yourself enclosed with nowhere to go. The raiders are closing in on you, and the only way out is a cliff that drops down into a river far below.", 0.03) 
+      print_with_typing("Finally, you find yourself enclosed with nowhere to go. The raiders are closing in on you, and the only way out is a cliff that drops down into a river far below.", 0.05) 
       puts "\n"
       puts "\n"
-      print_with_typing("Without thinking, you jump, feeling the rush of the wind as you fall. You hit the water with a splash, and for a moment, everything goes black.", 0.03) 
+      print_with_typing("Without thinking, you jump, feeling the rush of the wind as you fall. You hit the water with a splash, and for a moment, everything goes black.", 0.05) 
       puts "\n"
       puts "\n"
-      print_with_typing(" But then, you surface, gasping for air. You look up and see the raiders on the edge of the cliff, shouting and waving their weapons in anger.", 0.03) 
+      print_with_typing(" But then, you surface, gasping for air. You look up and see the raiders on the edge of the cliff, shouting and waving their weapons in anger.", 0.05) 
       puts "\n"
       puts "\n"
-      print_with_typing("You swim to the shore, feeling a sense of relief wash over you. You made it out alive, but you know that the dangers of this new world are far from over.", 0.03) 
+      print_with_typing("You swim to the shore, feeling a sense of relief wash over you. You made it out alive, but you know that the dangers of this new world are far from over.", 0.05) 
       puts "\n"
       puts "\n"
-      print_with_typing("You rest for a few hours, trying to catch your breath and gather your thoughts. You know you can't stay in one place for too long, so you set out to find shelter and food. The world around you is bleak and desolate, and you can't help but feel a sense of despair.", 0.03)
+      print_with_typing("You rest for a few hours, trying to catch your breath and gather your thoughts. You know you can't stay in one place for too long, so you set out to find shelter and food. The world around you is bleak and desolate, and you can't help but feel a sense of despair.", 0.05)
       puts "\n"
       puts "\n"
-      print_with_typing("As you walk, you come across the ruins of an old town. The buildings are crumbling, and the streets are littered with debris. You start to search for any signs of life, but all you find are abandoned homes and empty streets.", 0.03)
+      print_with_typing("As you walk, you come across the ruins of an old town. The buildings are crumbling, and the streets are littered with debris. You start to search for any signs of life, but all you find are abandoned homes and empty streets.", 0.05)
       puts "\n"
       puts "\n"
       print_with_typing("Just when you start to lose hope, you see a road sign up ahead. It reads Latte Woods - West and Espresso Lane - East.You're not sure where to go, but you know that you need to make a decision soon.", 0.03)
       puts "\n"
       puts "\n"
-      print_with_typing("You weigh your options carefully. Latte Woods might offer some semblance of safety and security, but it's also a prime target for raiders and other dangers. Espresso Lane, on the other hand, might be more dangerous, but it could also offer more resources and opportunities.", 0.03)
+      print_with_typing("You weigh your options carefully. Latte Woods might offer some semblance of safety and security, but it's also a prime target for raiders and other dangers. Espresso Lane, on the other hand, might be more dangerous, but it could also offer more resources and opportunities.", 0.05)
       puts "\n"
       puts "\n"
       puts "a. Go West (easy mode)"
@@ -189,22 +195,22 @@ def story()
   end 
 
   if player_choice == "b"
-    print_with_typing("As the player walked away from the old man's ramblings, they couldn't shake off the feeling of unease. The old man's words echoed in their mind, and they couldn't help but wonder what could have happened if they stayed a little longer.", 0.03)
+    print_with_typing("As the player walked away from the old man's ramblings, they couldn't shake off the feeling of unease. The old man's words echoed in their mind, and they couldn't help but wonder what could have happened if they stayed a little longer.", 0.05)
     puts "\n"
     puts "\n"
-    print_with_typing("As they walked down the path towards the road sign, the player felt a chill run down their spine. The woods around them were dark and ominous, the leaves rustling underfoot. The air was thick with the scent of pine needles and damp earth.", 0.03)
+    print_with_typing("As they walked down the path towards the road sign, the player felt a chill run down their spine. The woods around them were dark and ominous, the leaves rustling underfoot. The air was thick with the scent of pine needles and damp earth.", 0.05)
     puts "\n"
     puts "\n"
-    print_with_typing("The road sign loomed ahead, its faded letters barely legible in the dim light. The player approached the sign, their eyes flickering between the two options. They hesitated for a moment, unsure of which way to go, before finally deciding to head west towards Latte Woods.", 0.03)
+    print_with_typing("The road sign loomed ahead, its faded letters barely legible in the dim light. The player approached the sign, their eyes flickering between the two options. They hesitated for a moment, unsure of which way to go, before finally deciding to head west towards Latte Woods.", 0.05)
     puts "\n"
     puts "\n"
     print_with_typing("As they walked down the dirt path, the player couldn't shake off the feeling of guilt. What if they had stayed and listened to the old man's story? Could they have prevented what was about to happen?", 0.03)
     puts "\n"
     puts "\n"
-    print_with_typing("After walking for what felt like hours, the player finally saw something in the distance. As they got closer, they realized with horror that it was the old man, crucified and robbed. The smell of blood and decay filled the air, and the player felt sick to their stomach.", 0.03)
+    print_with_typing("After walking for what felt like hours, the player finally saw something in the distance. As they got closer, they realized with horror that it was the old man, crucified and robbed. The smell of blood and decay filled the air, and the player felt sick to their stomach.", 0.05)
     puts "\n"
     puts "\n"
-    print_with_typing("They couldn't help but feel responsible for what had happened. If only they had stayed and listened, maybe they could have helped the old man. But now, it was too late. The player couldn't shake off the image of the old man's lifeless body, and the guilt weighed heavy on their shoulders.", 0.03)
+    print_with_typing("They couldn't help but feel responsible for what had happened. If only they had stayed and listened, maybe they could have helped the old man. But now, it was too late. The player couldn't shake off the image of the old man's lifeless body, and the guilt weighed heavy on their shoulders.", 0.05)
     puts "\n"
     puts "\n"
     print_with_typing("As the player reaches the crossroads, they come across a new road sign. It points to Latte Woods on the left and Espresso Lane on the right. The player weighs their options, knowing that one path will be easier than the other.", 0.03)
@@ -216,60 +222,26 @@ def story()
       player_choice = gets.chomp.downcase
       if player_choice == "a"
         puts "You went west"
+        puts "\n"
+        puts "a. Espresso lane known for it's fast route to great coffe. But be warned, the road is also home to mischievous baristas who are difficult opponents to beat.(hard mode)"
       end
       if player_choice == "b"
         puts "You went east"
+        puts "\n"
+        puts "b. Latte Woods known for it's creamy and foamy route to coffe. It takes time to get to where you want,but it's a calm ride to get your coffe.(easy mode)"
       end
       player_choice = nil 
   end 
-<<<<<<< Updated upstream
-end 
-=======
+
+
+
 
 
 
   
-  
-  user_input= ""
-  while user_input!="c"
-      user_input=validator(["a","b","c"],"invalid input. please chooose betweeen options a, b or c")
-      puts"\n"
-      puts "CHOOSE BETWEEN THE OPTIONS AVAILABLE"
-      puts"\n"
-      puts "a. Where am i?"
-      puts "b. Who are you?"
-      puts "c. Continue"
-      if user_input == "a"
-        puts"\n"
-        print_with_typing( "You are at the caffeinvania village, the southern village of the kingdom caffemania", 0.00005)
-        puts"\n"
-      end
-      if user_input == "b"
-        puts"\n"
-          print_with_typing("I am the king of this village big j", 0.0005)
-          puts"\n"
-      end
-  end
-  puts "\n"
-  print_with_typing("NOOOOOW WARRIOR! WILL YOU ACCEPT THIS CHALLENGE TO BECOME THE COFFE WARRIOR AND SAVE THIS VILLAGE FROM THE GREAT COFFE DEPRESSION", 0.00005)
-  puts "\n"
-  puts "a. Yes,i'm ready!"
-  puts "b. No, give me a bit of time man."
-  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
-  
-  if user_input== "a"
-    puts"\n"
-      print_with_typing( "excellent let's the journey begin!", 0.00005)
-      puts "\n"
-  end
-  if user_input== "b"
-    puts"\n"
-      print_with_typing("you have no choice my youngling. Let's the journey begin!", 0.00005) 
-      puts "\n"
-  end
   sleep(2)
   puts "\n"
-  puts "Which route do you want to take"
+  puts "you have come Which route do you want to take"
   puts "\n"
   sleep(1)
   puts "a. Espresso lane known for it's fast route to great coffe. But be warned, the road is also home to mischievous baristas who are difficult opponents to beat.(hard mode)"
@@ -306,22 +278,22 @@ end
 
   puts "\n"
   sleep(1)
-  print_with_typing("chosen warrior, set off on his quest with nothing but a map and his wits. He journeyed through dense forests, across raging rivers, and over treacherous mountains. Along the way, he encountered many dangers, including wild beasts, hostile tribes, and treacherous terrain.", 0.0005) 
+  print_with_typing("chosen warrior, set off on his quest with nothing but a map and his wits. He journeyed through dense forests, across raging rivers, and over treacherous mountains. Along the way, he encountered many dangers, including wild beasts, hostile tribes, and treacherous terrain.", 0.05) 
   puts "\n"
   sleep(1)
   puts "suddenly an opponent has appeared!!!!!"
   battle(player_info,"Give me my coffe youngling",opponents[0],4)
-  print_with_typing("the young warrior was close to the coffe destination but has some miles left. But at the young man's view, he saw something he has never seen before. A talking horse named borscht",0.005)
+  print_with_typing("the young warrior was close to the coffe destination but has some miles left. But at the young man's view, he saw something he has never seen before. A talking horse named borscht",0.05)
   puts "\n"
   sleep(1)
-  print_with_typing(" Borscht: Youngling, i have a tricky question for you. and as a reward i will let you ride me to your destination. ",0.005)
+  print_with_typing(" Borscht: Youngling, i have a tricky question for you. and as a reward i will let you ride me to your destination. ",0.05)
   puts "\n"
   sleep(1)
   riddle(" I have keys but no locks, and space but no room, you can enter, but you can never leave soon. What am i?.","keyboard")
-  print_with_typing("The Horse named borscht helped the youngling to get so near the coffe supply of the world, but the horse leg's started to get tired and had to rest so the youngling went alone",0.005)
+  print_with_typing("The Horse named borscht helped the youngling to get so near the coffe supply of the world, but the horse leg's started to get tired and had to rest so the youngling went alone",0.05)
   puts "\n"
   sleep(1)
-  print_with_typing("And there he is, So near he can get to endless coffe. But suddenly the final opponent have arrived. To stop him from obtaining this valuable asset",0.005)
+  print_with_typing("And there he is, So near he can get to endless coffe. But suddenly the final opponent have arrived. To stop him from obtaining this valuable asset",0.05)
   battle(player_info,"Coffe Hunter:You shall not pass youngling",opponents[4],10)
   puts "\n"
   sleep(1)
@@ -329,5 +301,3 @@ end
 end 
 
 
-
->>>>>>> Stashed changes

@@ -128,3 +128,5 @@ def battle(player_info,message,opponent_info,level)
         end
     end
 end
+
+
