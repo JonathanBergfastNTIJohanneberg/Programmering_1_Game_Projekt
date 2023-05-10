@@ -118,8 +118,12 @@ def battle(player_info,message,opponent_info,level)
         end
         
         if player_info[0] <= 0
+            puts "\n"
             puts "Game Over"
-            break
+            puts "\n"
+            sleep(2)
+            system("ruby version_alpha.rb")
+            exit
         end
     end
 end

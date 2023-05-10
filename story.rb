@@ -1,5 +1,6 @@
-require_relative "battle.rb"
-require_relative "validator"
+
+
+
 
 def print_with_typing(text, delay)
   text.each_char do |c|
@@ -27,7 +28,6 @@ def story()
     [100, 25, 20, [true, false].sample, 5],
     [120, 35, 25, [true, false].sample, 4]
   ]
-  # skiv story intro
 
   puts"\n"
   print_with_typing("The year is 4042, and the world is barely recognizable. As you slowly open your eyes, the reality of the post-apocalyptic world around you sets in. The sun's dim light struggles to penetrate the thick haze of smog and ash that hangs in the air, a constant reminder of the destruction that has taken place. It's been years since the collapse, and the chaos that ensued was unprecedented. The global coffee shortage left people unable to function without their morning cup of coffee or energy drinks, and as a result, society crumbled.", 0.03)
@@ -45,7 +45,7 @@ def story()
   puts "\n"
   puts "\n"
   sleep(2)
-  print_with_typing("As you start to come to, you realize that you have been in a daze. Your head is pounding, and your vision is blurry. You struggle to sit up and take in your surroundings. The world around you is barely recognizable. The buildings are in ruins, and the streets are littered with debris. The air is thick with smog and ash, and the only sound you can hear is the distant rumbling of thunder. You try to remember how you got here, but your memory is hazy. Just then, an old man approaches you, asking for help.", 0.03)
+  print_with_typing("As you start to lively up, you realize that you have been in a daze. Your head is pounding, and your vision is blurry. You struggle to sit up and take in your surroundings. The world around you is barely recognizable. The buildings are in ruins, and the streets are littered with debris. The air is thick with smog and ash, and the only sound you can hear is the distant rumbling of thunder. You try to remember how you got here, but your memory is hazy. Just then, an old man approaches you, asking for help.", 0.03)
   puts"\n"
   puts"\n"
   sleep(2)
@@ -58,7 +58,6 @@ def story()
   puts "\n"
   player_choice = validator(["a","b"],"invalid input. please chooose betweeen options a or b")
   puts "\n"
-
   if player_choice =="a"
     print_with_typing("You stand up, feeling a twinge of pain in your side, and follow the old man through the ruins of the city. You can see the fear in his eyes as he looks over his shoulder, and you know that you need to act fast. As you approach a small alleyway, you hear the sound of footsteps getting louder. The raiders are closing in, and you can see their shadows moving in the distance.", 0.03)
     sleep(2)
@@ -89,7 +88,44 @@ def story()
       battle(player_info,"Raider 1: I Will Kill You",latte_woods_opp[0],1)
       puts "\n"
       battle(player_info,"Raider 2: Prepare To Suffer",latte_woods_opp[1],1)
-      
+      puts "\n"
+      puts "\n"
+      sleep(2)
+      print_with_typing("As the raiders lay defeated at your feet, you take a deep breath and survey the area around you. Your heart is still racing from the adrenaline rush of battle, but you can feel exhaustion starting to creep up on you. You know you need to find shelter, and fast.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("Your eyes scan the horizon, searching for any sign of civilization. In the distance, you see the outline of a building, and your heart lifts. Maybe you can find refuge there. You help the old man to his feet, and together you start to move towards the structure.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("As you approach, you can see that it's an old, run-down building, probably abandoned long ago. But at this point, any shelter is better than none. You kick open the door and step inside, the old man shuffling in behind you.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("The inside is just as dilapidated as the outside, with broken furniture and debris littering the floor. But you don't care. You just need a place to rest. You find a corner of the room that seems relatively clean, and you lay down, your eyes already starting to droop.", 0.03)
+      puts "\n"
+      puts "\n"
+      sleep(3)
+      print_with_typing("The next thing you know, you're waking up in a daze. You blink a few times, trying to clear your head, and slowly sit up. The old man is still snoring softly beside you. You feel well-rested, but still a little sore from the battle.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("You stand up and stretch, feeling the stiffness in your muscles. As you move towards the door, you notice something glinting on the ground. You pick it up and realize it's a small, metal street sign.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("You squint at the words on the sign, trying to make out the faded lettering. After a moment, you're able to make out the two names: Latte Woods and Espresso Lane. You don't recognize either one.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("But as you look out the window, you realize that you're standing at a crossroads. In the west lies Latte Woods, and in the east lies Espresso Lane. You know that you need to choose a direction, and soon.", 0.03)
+      puts "\n"
+      puts "\n"
+      puts "a. Go West (easy mode)"
+      puts "b. Go East (hard mode)"
+      puts"\n"
+      player_choice = gets.chomp.downcase
+      if player_choice == "a"
+        puts "You went west"
+      end
+      if player_choice == "b"
+        puts "You went east"
+      end
     end
 
     if player_choice == "b"
@@ -112,109 +148,66 @@ def story()
       puts "\n"
       puts "\n"
       print_with_typing("You swim to the shore, feeling a sense of relief wash over you. You made it out alive, but you know that the dangers of this new world are far from over.", 0.03) 
-      ###
-      print_with_typing("Du kommer till en väkskylt, åt höger är Espreosso Lane Åt vänster är Latte Woods", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("You rest for a few hours, trying to catch your breath and gather your thoughts. You know you can't stay in one place for too long, so you set out to find shelter and food. The world around you is bleak and desolate, and you can't help but feel a sense of despair.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("As you walk, you come across the ruins of an old town. The buildings are crumbling, and the streets are littered with debris. You start to search for any signs of life, but all you find are abandoned homes and empty streets.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("Just when you start to lose hope, you see a road sign up ahead. It reads Latte Woods - West and Espresso Lane - East.You're not sure where to go, but you know that you need to make a decision soon.", 0.03)
+      puts "\n"
+      puts "\n"
+      print_with_typing("You weigh your options carefully. Latte Woods might offer some semblance of safety and security, but it's also a prime target for raiders and other dangers. Espresso Lane, on the other hand, might be more dangerous, but it could also offer more resources and opportunities.", 0.03)
+      puts "\n"
+      puts "\n"
+      puts "a. Go West (easy mode)"
+      puts "b. Go East (hard mode)"
+      puts"\n"
+      player_choice = gets.chomp.downcase
+      if player_choice == "a"
+        puts "You went west"
+      end
+      if player_choice == "b"
+        puts "You went east"
+      end
       player_choice = nil 
     end 
   end 
 
   if player_choice == "b"
-    print_with_typing("Travelling yadi yadi yada", 0.03)
-    ###
-    ###
-    print_with_typing("Du kommer till en väkskylt, åt höger är Espreosso Lane Åt vänster är Latte Woods", 0.03)
+    print_with_typing("As the player walked away from the old man's ramblings, they couldn't shake off the feeling of unease. The old man's words echoed in their mind, and they couldn't help but wonder what could have happened if they stayed a little longer.", 0.03)
+    puts "\n"
+    puts "\n"
+    print_with_typing("As they walked down the path towards the road sign, the player felt a chill run down their spine. The woods around them were dark and ominous, the leaves rustling underfoot. The air was thick with the scent of pine needles and damp earth.", 0.03)
+    puts "\n"
+    puts "\n"
+    print_with_typing("The road sign loomed ahead, its faded letters barely legible in the dim light. The player approached the sign, their eyes flickering between the two options. They hesitated for a moment, unsure of which way to go, before finally deciding to head west towards Latte Woods.", 0.03)
+    puts "\n"
+    puts "\n"
+    print_with_typing("As they walked down the dirt path, the player couldn't shake off the feeling of guilt. What if they had stayed and listened to the old man's story? Could they have prevented what was about to happen?", 0.03)
+    puts "\n"
+    puts "\n"
+    print_with_typing("After walking for what felt like hours, the player finally saw something in the distance. As they got closer, they realized with horror that it was the old man, crucified and robbed. The smell of blood and decay filled the air, and the player felt sick to their stomach.", 0.03)
+    puts "\n"
+    puts "\n"
+    print_with_typing("They couldn't help but feel responsible for what had happened. If only they had stayed and listened, maybe they could have helped the old man. But now, it was too late. The player couldn't shake off the image of the old man's lifeless body, and the guilt weighed heavy on their shoulders.", 0.03)
+    puts "\n"
+    puts "\n"
+    print_with_typing("As the player reaches the crossroads, they come across a new road sign. It points to Latte Woods on the left and Espresso Lane on the right. The player weighs their options, knowing that one path will be easier than the other.", 0.03)
+    puts "\n"
+      puts "\n"
+      puts "a. Go West (easy mode)"
+      puts "b. Go East (hard mode)"
+      puts"\n"
+      player_choice = gets.chomp.downcase
+      if player_choice == "a"
+        puts "You went west"
+      end
+      if player_choice == "b"
+        puts "You went east"
+      end
+      player_choice = nil 
   end 
-
-
-
-  
-  
-  user_input= ""
-  while user_input!="c"
-      user_input=validator(["a","b","c"],"invalid input. please chooose betweeen options a, b or c")
-      puts"\n"
-      puts "CHOOSE BETWEEN THE OPTIONS AVAILABLE"
-      puts"\n"
-      puts "a. Where am i?"
-      puts "b. Who are you?"
-      puts "c. Continue"
-      if user_input == "a"
-        puts"\n"
-        print_with_typing( "You are at the caffeinvania village, the southern village of the kingdom caffemania", 0.00005)
-        puts"\n"
-      end
-      if user_input == "b"
-        puts"\n"
-          print_with_typing("I am the king of this village big j", 0.0005)
-          puts"\n"
-      end
-  end
-  puts "\n"
-  print_with_typing("NOOOOOW WARRIOR! WILL YOU ACCEPT THIS CHALLENGE TO BECOME THE COFFE WARRIOR AND SAVE THIS VILLAGE FROM THE GREAT COFFE DEPRESSION", 0.00005)
-  puts "\n"
-  puts "a. Yes,i'm ready!"
-  puts "b. No, give me a bit of time man."
-  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
-  
-  if user_input== "a"
-    puts"\n"
-      print_with_typing( "excellent let's the journey begin!", 0.00005)
-      puts "\n"
-  end
-  if user_input== "b"
-    puts"\n"
-      print_with_typing("you have no choice my youngling. Let's the journey begin!", 0.00005) 
-      puts "\n"
-  end
-  sleep(2)
-  puts "\n"
-  puts "Which route do you want to take"
-  puts "\n"
-  sleep(1)
-  puts "a. Espresso lane known for it's fast route to great coffe. But be warned, the road is also home to mischievous baristas who are difficult opponents to beat.(hard mode)"
-  puts "\n"
-  sleep(5)
-  puts "\n"
-  puts "b. Latte Woods known for it's creamy and foamy route to coffe. It takes time to get to where you want,but it's a calm ride to get your coffe.(easy mode)"
-  puts"\n"
-  
-  user_input= validator(["a","b"],"invalid input. please chooose betweeen options a or b")
-  if user_input == "a"
-      sleep(1)
-      puts"\n"
-      puts "You've choosen the Espresso lane."
-      puts"\n"
-  end
-  if user_input == "b"
-      sleep(1)
-      puts"\n"
-      puts "You've choosen the Latte Woods."
-      puts"\n"
-  end
-
-  if user_input == "a"
-    opponents = espresso_lane_opp
-  end
-
-  if user_input == "b"
-    opponents = latte_woods_opp
-  end
-
-
-  
-
-  puts "\n"
-  sleep(1)
-  print_with_typing("chosen warrior, set off on his quest with nothing but a map and his wits. He journeyed through dense forests, across raging rivers, and over treacherous mountains. Along the way, he encountered many dangers, including wild beasts, hostile tribes, and treacherous terrain.", 0.0005) 
-  puts "\n"
-  sleep(1)
-  puts "suddenly an opponent has appeared!!!!!"
-  sleep(1)
-  
-  
-  
-
 end 
-
-
-
